@@ -27,3 +27,25 @@ function playRound(playerSelection,computerSelection){
     }
 }
 
+function game(){
+    let win_counter=0,lose_counter=0;
+    for(let i=1; i<=5; i++){
+      let playerSelection = prompt("Rock, Paper or Scissors?");
+      let computerSelection = getComputerChoice();
+      let result = playRound(playerSelection,computerSelection);
+
+      if(result.slice(4,7) === "Win"){
+        win_counter++;
+      }else if(result.slice(4,8) === "Lose"){
+        lose_counter++;
+      }
+    }
+
+    if(win_counter > lose_counter){
+        return "You are the winner!";
+    }else if(win_counter < lose_counter){
+        return "You lost!";
+    }else if(win_counter === lose_counter){
+        return "It's a Draw!";
+    }
+}
