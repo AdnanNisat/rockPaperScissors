@@ -29,7 +29,7 @@ function playRound(playerSelection,computerSelection){
 
 function game(){
     let win_counter=0,lose_counter=0;
-    for(let i=1; i<=5; i++){
+    for(let i=1; i<=1; i++){
       let playerSelection = prompt("Rock, Paper or Scissors?");
       let computerSelection = getComputerChoice();
       let result = playRound(playerSelection,computerSelection);
@@ -49,3 +49,23 @@ function game(){
         return "It's a Draw!";
     }
 }
+
+
+//TO HTML
+const btnRock = document.querySelector("#rock");
+btnRock.addEventListener('click', () => {
+  let result = playRound('rock',getComputerChoice());
+  console.log(result);
+});
+
+const btnPaper = document.querySelector("#paper");
+btnPaper.addEventListener('click', () => {
+  let result = playRound('paper',getComputerChoice());
+  console.log(result);
+});
+
+const btnScissors = document.querySelector("#scissors");
+btnScissors.addEventListener('click', () => {
+  let result = playRound('scissors',getComputerChoice());
+  console.log(result);
+});
