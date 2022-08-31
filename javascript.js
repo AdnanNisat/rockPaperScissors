@@ -27,45 +27,76 @@ function playRound(playerSelection,computerSelection){
     }
 }
 
-function game(){
+function score(result){
     let win_counter=0,lose_counter=0;
-    for(let i=1; i<=1; i++){
-      let playerSelection = prompt("Rock, Paper or Scissors?");
-      let computerSelection = getComputerChoice();
-      let result = playRound(playerSelection,computerSelection);
 
       if(result.slice(4,7) === "Win"){
         win_counter++;
+        return win_counter;
       }else if(result.slice(4,8) === "Lose"){
         lose_counter++;
+        return lose_counter;
       }
-    }
-
-    if(win_counter > lose_counter){
-        return "You are the winner!";
-    }else if(win_counter < lose_counter){
-        return "You lost!";
-    }else if(win_counter === lose_counter){
-        return "It's a Draw!";
-    }
 }
+
+    // if(win_counter > lose_counter){
+    //     return "You are the winner!";
+    // }else if(win_counter < lose_counter){
+    //     return "You lost!";
+    // }else if(win_counter === lose_counter){
+    //     return "It's a Draw!";
+    // }
+
 
 
 //TO HTML
+
+
 const btnRock = document.querySelector("#rock");
 btnRock.addEventListener('click', () => {
   let result = playRound('rock',getComputerChoice());
   console.log(result);
+  
+  const showResult = document.querySelector('#results');
+  const displayResultText = document.createElement('p');
+  displayResultText.textContent = result;
+  if(showResult.lastElementChild){
+  showResult.removeChild(showResult.lastElementChild);  //Removes the last text
+  } 
+  showResult.appendChild(displayResultText);  //Adds the new result text
+  
+  
+
 });
 
 const btnPaper = document.querySelector("#paper");
 btnPaper.addEventListener('click', () => {
   let result = playRound('paper',getComputerChoice());
   console.log(result);
+
+  const showResult = document.querySelector('#results');
+  const displayResultText = document.createElement('p');
+  displayResultText.textContent = result;
+  if(showResult.lastElementChild){
+  showResult.removeChild(showResult.lastElementChild);  //Removes the last text
+  } 
+  showResult.appendChild(displayResultText);  //Adds the new result text
+  
+  
 });
 
 const btnScissors = document.querySelector("#scissors");
 btnScissors.addEventListener('click', () => {
   let result = playRound('scissors',getComputerChoice());
   console.log(result);
+
+  const showResult = document.querySelector('#results');
+  const displayResultText = document.createElement('p');
+  displayResultText.textContent = result;
+  if(showResult.lastElementChild){
+  showResult.removeChild(showResult.lastElementChild);  //Removes the last text
+  } 
+  showResult.appendChild(displayResultText);  //Adds the new result text
+  
+  
 });
