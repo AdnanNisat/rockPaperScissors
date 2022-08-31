@@ -33,6 +33,13 @@ function score(result){
     const runningScore = document.getElementById("runningScore");
     playedRounds++;
 
+    userScore.textContent = `You: ${win_counter}`;
+    runningScore.removeChild(userScore);
+    runningScore.appendChild(userScore);
+    compScore.textContent = `Opponent: ${lose_counter}`;
+    runningScore.removeChild(compScore);
+    runningScore.appendChild(compScore);
+
       if(result.slice(4,7) === "Win"){
         win_counter++;
         
